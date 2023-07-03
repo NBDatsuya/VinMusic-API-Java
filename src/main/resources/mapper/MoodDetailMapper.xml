@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sld.vinmusic.dao.MoodDetailMapper">
+  <resultMap id="BaseResultMap" type="sld.vinmusic.entity.MoodDetail">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="vin_count" jdbcType="BIGINT" property="vinCount" />
+  </resultMap>
+  <select id="selectByMood" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select *
+    from mood_vincount
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+</mapper>

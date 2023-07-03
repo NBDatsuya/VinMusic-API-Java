@@ -1,0 +1,1 @@
+"E:\Program Files\Redis\redis-server" "E:\Program Files\Redis\redis.windows.conf"

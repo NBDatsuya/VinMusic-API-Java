@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sld.vinmusic.dao.MoodMapper">
+  <resultMap id="BaseResultMap" type="sld.vinmusic.entity.Mood">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="a_id" jdbcType="BIGINT" property="aId" />
+    <result column="a_id" javaType="sld.vinmusic.entity.Account"
+            typeHandler="sld.vinmusic.entity.Account"
+    />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    delete from mood
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="sld.vinmusic.entity.Mood" useGeneratedKeys="true">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    insert into mood (a_id, content)
+    values (#{aId,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="sld.vinmusic.entity.Mood">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    update mood
+    set a_id = #{aId,jdbcType=BIGINT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select id, a_id, content
+    from mood
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select id, a_id, content
+    from mood
+  </select>
+</mapper>

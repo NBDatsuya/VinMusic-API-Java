@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sld.vinmusic.dao.AccountMapper">
+  <resultMap id="BaseResultMap" type="sld.vinmusic.entity.Account">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="a_name" jdbcType="VARCHAR" property="aName" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    delete from account
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="sld.vinmusic.entity.Account" useGeneratedKeys="true">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    insert into account (a_name, pwd)
+    values (#{aName,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="sld.vinmusic.entity.Account">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    update account
+    set a_name = #{aName,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select id, a_name, pwd
+    from account
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select id, a_name, pwd
+    from account
+  </select>
+</mapper>
